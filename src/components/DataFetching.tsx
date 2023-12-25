@@ -3,7 +3,7 @@
             <h2>Kolęda 2023/24</h2>
 
             <br />
-            W rozpisce kolędy zostało uwzględnione:
+            W rozpisce kolędy zostało uwzględnione następujące rzeczy:
             <br />
             1. Ilość punktów wynikających ze służenia
                 < br />
