@@ -1,11 +1,11 @@
-import Message from "./Message";
+import DataFetching from "./components/DataFetching"
 import './App.css'
 
 function App() {
   return (
     <>
           <div>
-              <Message />
+              <DataFetching />
       </div>
     </>
   )
