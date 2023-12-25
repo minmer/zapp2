@@ -10,7 +10,7 @@ const DataFetching: React.FC = () => {
     const [posts, setPosts] = useState<Post[]>([]);
 
     useEffect(() => {
-        axios.get<Post[]>('https://jsonplaceholder.typicode.com/posts') 
+        axios.get<Post[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/list?id=1') 
             .then(res => {
                 console.log(res);
                 setPosts(res.data);
@@ -19,9 +19,6 @@ const DataFetching: React.FC = () => {
                 console.log(err);
             });
     }, []);
-
-    // https://probewebapp20231222201703.azurewebsites.net/api/minkol/list?id=1
-
     return (
         <div>
             <ul>
