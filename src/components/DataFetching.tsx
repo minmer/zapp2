@@ -30,20 +30,20 @@ const DataFetching: React.FC = () => {
     return (
 
         <div>
-            <h2>Kolêda 2023/24</h2>
+            <h2>KolÄ™da 2023/24</h2>
 
             <br />
-            W rozpisce kolêdy zosta³o uwzglêdnione:
+            W rozpisce kolÄ™dy zostaÅ‚o uwzglÄ™dnione:
             <br />
-            1. Iloœæ punktów wynikaj¹cych ze s³u¿enia
+            1. IloÅ›Ä‡ punktÃ³w wynikajÄ…cych ze sÅ‚uÅ¼enia
             < br />
-            2. Sta¿ w s³u¿bie liturgicznej(nowi ministranci, ministranci, lektorzy)
+            2. StaÅ¼ w sÅ‚uÅ¼bie liturgicznej(nowi ministranci, ministranci, lektorzy)
             < br />
-            3. Terminy zg³oszone w formularzu
+            3. Terminy zgÅ‚oszone w formularzu
             < br />
-            4. Miejsce zamieszkania(w dniu, w którym macie kolêdê, mam nadziejê, ¿e bêdziecie dostêpni)
+            4. Miejsce zamieszkania(w dniu, w ktÃ³rym macie kolÄ™dÄ™, mam nadziejÄ™, Å¼e bÄ™dziecie dostÄ™pni)
             < br />
-            Przy rozpisaniu kolêdy nie mia³em na bie¿¹co przed sob¹ listê z imionami, wiêc przepraszam, jeœli zapomnia³em uwzglêdniæ jakieœ osobiste proœby.
+            Przy rozpisaniu kolÄ™dy nie miaÅ‚em na bieÅ¼Ä…co przed sobÄ… listÄ™ z imionami, wiÄ™c przepraszam, jeÅ›li zapomniaÅ‚em uwzglÄ™dniÄ‡ jakieÅ› osobiste proÅ›by.
             < br />
             <h1 id="name"></h1>
             <br />
@@ -51,10 +51,10 @@ const DataFetching: React.FC = () => {
                 <thead>
                     <tr>
                         <th>Rejon/ulice</th>
-                        <th>Rozpoczêcie</th>
-                        <th>Zakoñczenie</th>
-                        <th>Ksi¹dz</th>
-                        <th>Imiê i nazwisko drugiego ministranta</th>
+                        <th>RozpoczÄ™cie</th>
+                        <th>ZakoÅ„czenie</th>
+                        <th>KsiÄ…dz</th>
+                        <th>ImiÄ™ i nazwisko drugiego ministranta</th>
                         <th>Telefon do drugiego ministranta</th>
                     </tr>
                 </thead>
