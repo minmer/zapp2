@@ -36,14 +36,14 @@ const DataFetching: React.FC = () => {
             W rozpisce kolêdy zosta³o uwzglêdnione:
             <br />
             1. Iloœæ punktów wynikaj¹cych ze s³u¿enia
-                < br />
-                2. Sta¿ w s³u¿bie liturgicznej(nowi ministranci, ministranci, lektorzy)
-                    < br />
-                    3. Terminy zg³oszone w formularzu
-                        < br />
-                        4. Miejsce zamieszkania(w dniu, w którym macie kolêdê, mam nadziejê, ¿e bêdziecie dostêpni)
-                            < br />
-                            Przy rozpisaniu kolêdy nie mia³em na bie¿¹co przed sob¹ listê z imionami, wiêc przepraszam, jeœli zapomnia³em uwzglêdniæ jakieœ osobiste proœby.
+            < br />
+            2. Sta¿ w s³u¿bie liturgicznej(nowi ministranci, ministranci, lektorzy)
+            < br />
+            3. Terminy zg³oszone w formularzu
+            < br />
+            4. Miejsce zamieszkania(w dniu, w którym macie kolêdê, mam nadziejê, ¿e bêdziecie dostêpni)
+            < br />
+            Przy rozpisaniu kolêdy nie mia³em na bie¿¹co przed sob¹ listê z imionami, wiêc przepraszam, jeœli zapomnia³em uwzglêdniæ jakieœ osobiste proœby.
             < br />
             <h1 id="name"></h1>
             <br />
@@ -61,9 +61,9 @@ const DataFetching: React.FC = () => {
 
                 <tbody>
 
-                        {
+                    {
                         posts.map(post => (
-                            <tr key={"kol_"+post.id}>
+                            <tr key={"kol_" + post.id}>
                                 <td>{post.street}</td>
                                 <td>{new Date(post.startDate).toLocaleString("pl-PL", { weekday: "long", year: "2-digit", month: "2-digit", day: "2-digit", hour: "numeric", minute: "2-digit" })}</td>
                                 <td>{new Date(post.endDate).toLocaleString("pl-PL", { weekday: "long", year: "2-digit", month: "2-digit", day: "2-digit", hour: "numeric", minute: "2-digit" })}</td>
@@ -71,8 +71,8 @@ const DataFetching: React.FC = () => {
                                 <td>{post.minName}</td>
                                 <td>{post.minTel}</td>
                             </tr>
-                            ))
-                        }
+                        ))
+                    }
 
                 </tbody>
             </table >
