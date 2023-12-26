@@ -23,7 +23,6 @@ const DateFetching: React.FC<Props> = (region) => {
         axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/present?id=' + id + '&min=' + region.min + '&cod=' + region.cod)
             .then(res => {
                 console.log(res);
-                setPosts(res.data);
             })
             .catch(err => {
                 console.log(err);
