@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import axios from 'axios';
 
 interface Street {
@@ -13,16 +12,15 @@ interface Street {
 const StreetFetching: React.FC = () => {
 
     const checkClick = () => {
+        const street = (document.getElementById("street_input") as HTMLInputElement).value
+        axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/street?street=' + street)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
-    useEffect(() => {
-            axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/region?id=')
-                .then(res => {
-                    console.log(res);
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-    }, []);
     return (
 
         <div>
@@ -31,7 +29,13 @@ const StreetFetching: React.FC = () => {
             <br />
             Poniżej istnieje możliwość wpisania swojego adresu, aby sprawdzić przybliżoną godzinę przybycia księdza z kolędą.
             <br />
-            Przy rozpisaniu kolędy nie miałem na bieżąco przed sobą listę z imionami, więc przepraszam, jeśli zapomniałem uwzględnić jakieś osobiste prośby.
+            Aby sprawdzanie się powiodło należy napisać adres według poniższego wzoru:
+            < br />
+            np. Zielonki, Osiedlowa 21
+            < br />
+            np. Zielonki, Rzyczyska 9 M
+            < br />
+            np. Garlica Murowana, Garlicka 110
             < br />
             <input
                 id="street_input"

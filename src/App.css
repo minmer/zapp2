@@ -61,3 +61,8 @@ table {
     border: 1px black solid;
     border-collapse: collapse;
 }
+
+input {
+    margin: 12px;
+    padding: 12px;
+}
