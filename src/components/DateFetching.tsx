@@ -17,7 +17,7 @@ interface Props {
 
 const DateFetching: React.FC<Props> = (region) => {
     const [posts, setPosts] = useState<Street[]>([]);
-    const [rea, setRea] = useState<string>(0);
+    const [rea, setRea] = useState<number>(0);
 
     const confirmClick = (id: number) => {
         axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/present?id=' + id + '&min=' + region.min + '&cod=' + region.cod)
