@@ -31,7 +31,7 @@ const DateFetching: React.FC<Props> = (region) => {
     useEffect(() => {
         if (region.id != -1) {
             console.log(region.id);
-            axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/region?id=' + region)
+            axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/region?id=' + region.id)
                 .then(res => {
                     console.log(res);
                     setPosts(res.data);
