@@ -6,7 +6,6 @@ function App() {
     const [koleda, setKoleda] = useState(-1);
     const queryParameters = new URLSearchParams(window.location.search)
     let kol = parseInt(queryParameters.get("kol") || "-1")
-    setKoleda(kol);
     const isClicked = () => {
         kol = kol + 1
         setKoleda(kol);
