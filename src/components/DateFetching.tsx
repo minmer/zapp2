@@ -20,9 +20,16 @@ const DateFetching: React.FC<Props> = (region) => {
     const [rea, setRea] = useState<string>("123");
 
     const confirmClick = (id: number) => {
-        fetch('https://jsonplaceholder.typicode.com/posts/1')
+        axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/present?id=' + id + '&min=' + region.min + '&cod=' + region.cod)
+            .then(res => {
+                console.log(res);
+                setPosts(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            });
         setRea(Date.now.toString() + id);
-    };
+    }
     const absentClick = (id: number) => {
         setRea(Date.now.toString() + id);
     };
