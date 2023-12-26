@@ -7,7 +7,7 @@ const StreetFetching: React.FC = () => {
     const [value, setValue] = useState(""); // integer state
     const checkClick = () => {
         const street = (document.getElementById("street_input") as HTMLInputElement).value
-        axios.get<string>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/street?street=' + encodeURIComponent(street))
+        axios.get<string>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/street?street=' + street)
             .then(res => {
                 console.log(res);
                 setValue(res.data);
