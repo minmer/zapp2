@@ -30,9 +30,23 @@ const DateFetching: React.FC<Props> = (region) => {
         setRea(Date.now.toString() + id);
     }
     const absentClick = (id: number) => {
+        axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/absent?id=' + id + '&min=' + region.min + '&cod=' + region.cod)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
         setRea(Date.now.toString() + id);
     };
     const falseClick = (id: number) => {
+        axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/undo?id=' + id + '&min=' + region.min + '&cod=' + region.cod)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
         setRea(Date.now.toString() + id);
     };
     useEffect(() => {
