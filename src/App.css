@@ -50,8 +50,14 @@ tbody tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-thead th,
-tfoot th,
-tfoot td {
-    border: 3px solid black;
+th,
+td {
+    padding: 3px;
+    border: 1px black solid;
+}
+
+table {
+    margin: 12px;
+    border: 1px black solid;
+    border-collapse: collapse;
 }
