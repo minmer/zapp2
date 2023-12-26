@@ -16,8 +16,8 @@ function App() {
       <>
           <button onClick={ isClicked}>CLick me</button>
             <div>
-          {kol != null ? (
-                  <DataFetching id={koleda} />
+              {kol != null ? (
+                  <DataFetching key={ koleda} id={koleda} />
           ) : (
               <h1>Hello World!</h1>
           )}
