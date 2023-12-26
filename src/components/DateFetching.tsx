@@ -28,16 +28,17 @@ const DateFetching: React.FC<Props> = (region) => {
         if (id == 0)
             console.log("abc");
     };
-
     useEffect(() => {
-        axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/region?id=' + region)
-            .then(res => {
-                console.log(res);
-                setPosts(res.data);
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        if (region.id != -1) {
+            axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/region?id=' + region)
+                .then(res => {
+                    console.log(res);
+                    setPosts(res.data);
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
     }, []);
     // style={{border-collapse: "collapse"}}
     return (
