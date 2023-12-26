@@ -65,7 +65,7 @@ const DateFetching: React.FC<Props> = (region) => {
                         posts.map(post => (
                             <tr key={"region_" + post.id}>
                                 <td>{post.adress}</td>
-                                <td>{new Date(post.startDate).toLocaleString("pl-PL", { hour: "numeric", minute: "2-digit" })} + " - "+ {new Date(post.endDate).toLocaleString("pl-PL", { hour: "numeric", minute: "2-digit" })}</td>
+                                <td>{new Date(post.startDate).toLocaleString("pl-PL", { hour: "numeric", minute: "2-digit" })} - {new Date(post.endDate).toLocaleString("pl-PL", { hour: "numeric", minute: "2-digit" })}</td>
                                 <td>{post.status}</td>
                                 <td>{post.comment}</td>
                                 <td><button onClick={() => confirmClick(post.id)}>Przyjęcie</button></td>
