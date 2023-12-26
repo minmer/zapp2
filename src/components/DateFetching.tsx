@@ -17,7 +17,7 @@ interface Props {
 
 const DateFetching: React.FC<Props> = (region) => {
     const [posts, setPosts] = useState<Street[]>([]);
-    const [rea, setRea] = useState<string>("123");
+    const [rea, setRea] = useState<string>(0);
 
     const confirmClick = (id: number) => {
         axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/present?id=' + id + '&min=' + region.min + '&cod=' + region.cod)
@@ -27,7 +27,7 @@ const DateFetching: React.FC<Props> = (region) => {
             .catch(err => {
                 console.log(err);
             });
-        setRea(Date.now.toString() + id);
+        setRea(rea => rea + 1);
     }
     const absentClick = (id: number) => {
         axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/absent?id=' + id + '&min=' + region.min + '&cod=' + region.cod)
@@ -37,7 +37,7 @@ const DateFetching: React.FC<Props> = (region) => {
             .catch(err => {
                 console.log(err);
             });
-        setRea(Date.now.toString() + id);
+        setRea(rea => rea + 1);
     };
     const falseClick = (id: number) => {
         axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/undo?id=' + id + '&min=' + region.min + '&cod=' + region.cod)
@@ -47,7 +47,7 @@ const DateFetching: React.FC<Props> = (region) => {
             .catch(err => {
                 console.log(err);
             });
-        setRea(Date.now.toString() + id);
+        setRea(rea => rea + 1);
     };
     useEffect(() => {
         if (region.id != -1) {
