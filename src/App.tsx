@@ -15,7 +15,7 @@ function App() {
               {kol != -1 ? (
                   <DataFetching key={kol} id={kol} cod={cod} />
               ) : pr != -1 ? (
-                  <PrFetching key={kol} id={kol} cod={cod} />
+                      <PrFetching key={pr} id={pr} cod={cod} />
               ) : (
               <h1>Hello World!</h1>
           )}
