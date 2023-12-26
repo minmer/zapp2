@@ -13,6 +13,7 @@ interface Post {
 }
 interface Props {
     id: number,
+    cod: number,
 }
 
 const DataFetching: React.FC<Props> = (kol) => {
@@ -26,7 +27,7 @@ const DataFetching: React.FC<Props> = (kol) => {
     }
 
     useEffect(() => {
-        axios.get<Post[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/list?id=' + kol.id)
+        axios.get<Post[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/list?id=' + kol.id + '&cod=' + kol.cod)
             .then(res => {
                 console.log(res);
                 setPosts(res.data);
@@ -86,7 +87,7 @@ const DataFetching: React.FC<Props> = (kol) => {
 
                 </tbody>
             </table >
-            <DateFetching id={ koleda } key={"koleda_" + koleda} />
+            <DateFetching id={koleda} min={kol.id} cod={kol.cod} key={"koleda_" + koleda} />
         </div >
     );
 };

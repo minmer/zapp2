@@ -11,6 +11,8 @@ interface Street {
 }
 interface Props {
     id: number,
+    min: number,
+    cod: number,
 }
 
 const DateFetching: React.FC<Props> = (region) => {
@@ -31,7 +33,7 @@ const DateFetching: React.FC<Props> = (region) => {
     useEffect(() => {
         if (region.id != -1) {
             console.log(region.id);
-            axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/region?id=' + region.id)
+            axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/region?id=' + region.id + '&min=' + region.min + '&cod=' + region.cod)
                 .then(res => {
                     console.log(res);
                     setPosts(res.data);
