@@ -9,8 +9,11 @@ interface Street {
     status: string,
     comment: string
 }
+interface Props {
+    id: number,
+}
 
-const DateFetching: React.FC = (region) => {
+const DateFetching: React.FC<Props> = (region) => {
     const [posts, setPosts] = useState<Street[]>([]);
 
     const confirmClick = (id: number) => {
@@ -40,6 +43,7 @@ const DateFetching: React.FC = (region) => {
     return (
 
         <div>
+            {region.id != -1 ? (
             <table>
                 <thead>
                     <tr>
@@ -70,7 +74,11 @@ const DateFetching: React.FC = (region) => {
                     }
 
                 </tbody>
-            </table >
+                </table >
+            ) : (
+                    <div>
+                </div>
+            )}
         </div >
     );
 };

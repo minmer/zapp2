@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import DateFetching from './DateFetching';
 
 interface Post {
     id: number,
@@ -16,11 +17,12 @@ interface Props {
 
 const DataFetching: React.FC<Props> = (kol) => {
     const [posts, setPosts] = useState<Post[]>([]);
+    const [koleda, setKoleda] = useState(-1);
 
 
 
-    const handleClick = () => {
-        console.log("Hello");
+    const handleClick = (id:number) => {
+        setKoleda(id)
     }
 
     useEffect(() => {
@@ -77,13 +79,14 @@ const DataFetching: React.FC<Props> = (kol) => {
                                 <td>{post.priest}</td>
                                 <td>{post.minName}</td>
                                 <td>{post.minTel}</td>
-                                <td><button onClick={handleClick}>Szczegóły</button></td>
+                                <td><button onClick={() => handleClick(post.id)}>Szczegóły</button></td>
                             </tr>
                         ))
                     }
 
                 </tbody>
             </table >
+            <DateFetching id={ koleda } key={"koleda_" + koleda} />
         </div >
     );
 };
