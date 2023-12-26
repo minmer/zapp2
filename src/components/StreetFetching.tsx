@@ -9,30 +9,24 @@ interface Street {
     status: string,
     comment: string
 }
-interface Props {
-    id: number,
-    min: number,
-    cod: number,
-}
 
-const DateFetching: React.FC<Props> = (region) => {
+const StreetFetching: React.FC = () => {
     const [posts, setPosts] = useState<Street[]>([]);
-    const [rea, setRea] = useState<string>("123");
 
     const confirmClick = (id: number) => {
-        fetch('https://jsonplaceholder.typicode.com/posts/1')
-        setRea(Date.now.toString() + id);
+        if (id == 0)
+            console.log("abc");
     };
     const absentClick = (id: number) => {
-        setRea(Date.now.toString() + id);
+        if (id == 0)
+            console.log("abc");
     };
     const falseClick = (id: number) => {
-        setRea(Date.now.toString() + id);
+        if (id == 0)
+            console.log("abc");
     };
     useEffect(() => {
-        if (region.id != -1) {
-            console.log(region.id);
-            axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/region?id=' + region.id + '&min=' + region.min + '&cod=' + region.cod)
+            axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/region?id=')
                 .then(res => {
                     console.log(res);
                     setPosts(res.data);
@@ -40,14 +34,13 @@ const DateFetching: React.FC<Props> = (region) => {
                 .catch(err => {
                     console.log(err);
                 });
-        }
     }, []);
     // style={{border-collapse: "collapse"}}
     return (
 
         <div>
-            {region.id != -1 ? (
-                <table key={rea}>
+            {"".length == 0 ? (
+            <table>
                 <thead>
                     <tr>
                         <th>Adres</th>
@@ -86,4 +79,4 @@ const DateFetching: React.FC<Props> = (region) => {
     );
 };
 
-export default DateFetching;
+export default StreetFetching;

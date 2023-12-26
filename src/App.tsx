@@ -1,5 +1,6 @@
 import DataFetching from "./components/DataFetching"
 import PrFetching from "./components/PrFetching"
+import StreetFetching from "./components/StreetFetching"
 import './App.css'
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
                   <DataFetching key={kol} id={kol} cod={cod} />
               ) : pr != -1 ? (
                       <PrFetching key={pr} id={pr} cod={cod} />
-              ) : (
-              <h1>Hello World!</h1>
+                  ) : (
+                <StreetFetching/>
           )}
       </div>
     </>

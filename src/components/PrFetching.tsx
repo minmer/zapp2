@@ -10,7 +10,6 @@ interface Post {
     min1Tel: string,
     min2Name: string,
     min2Tel: string,
-    priest: string,
     street: string
 }
 interface Props {
@@ -65,7 +64,6 @@ const PrFetching: React.FC<Props> = (kol) => {
                         <th>Rejon/ulice</th>
                         <th>Rozpoczęcie</th>
                         <th>Zakończenie</th>
-                        <th>Ksiądz</th>
                         <th>1. ministranta</th>
                         <th>Telefon 1. ministranta</th>
                         <th>2. ministranta</th>
@@ -81,7 +79,6 @@ const PrFetching: React.FC<Props> = (kol) => {
                                 <td>{post.street}</td>
                                 <td>{new Date(post.startDate).toLocaleString("pl-PL", { weekday: "long", year: "2-digit", month: "2-digit", day: "2-digit", hour: "numeric", minute: "2-digit" })}</td>
                                 <td>{new Date(post.endDate).toLocaleString("pl-PL", { weekday: "long", year: "2-digit", month: "2-digit", day: "2-digit", hour: "numeric", minute: "2-digit" })}</td>
-                                <td>{post.priest}</td>
                                 <td>{post.min1Name}</td>
                                 <td>{post.min1Tel}</td>
                                 <td>{post.min2Name}</td>
