@@ -1,21 +1,16 @@
+import React, { useState } from 'react';
 import axios from 'axios';
 
-interface Street {
-    id: number,
-    startDate: Date,
-    endDate: Date,
-    adress: string,
-    status: string,
-    comment: string
-}
 
 const StreetFetching: React.FC = () => {
 
+    const [value, setValue] = useState(""); // integer state
     const checkClick = () => {
         const street = (document.getElementById("street_input") as HTMLInputElement).value
-        axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/street?street=' + encodeURIComponent(street))
+        axios.get<string>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/street?street=' + encodeURIComponent(street))
             .then(res => {
                 console.log(res);
+                setValue(res.data);
             })
             .catch(err => {
                 console.log(err);
@@ -42,6 +37,7 @@ const StreetFetching: React.FC = () => {
             />
             < br />
             <button onClick={checkClick}>Sprawdź</button>
+            <h2>{value}</h2>
         </div >
     );
 };
