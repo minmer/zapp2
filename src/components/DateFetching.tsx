@@ -15,9 +15,21 @@ interface Props {
     cod: number,
 }
 
+function useForceUpdate() {
+    const [value, setValue] = useState(0); // integer state
+    if (value >= 0)
+    {
+        return () => setValue(value => value + 1); // update state to force render   
+    }
+    return () => setValue(value => value + 1); // update state to force render
+    // A function that increment 👆🏻 the previous state like here 
+    // is better than directly setting `setValue(value + 1)`
+}
+
+
 const DateFetching: React.FC<Props> = (region) => {
     const [posts, setPosts] = useState<Street[]>([]);
-    const [rea, setRea] = useState<number>(0);
+    const forceUpdate = useForceUpdate();
 
     const confirmClick = (id: number) => {
         axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/present?id=' + id + '&min=' + region.min + '&cod=' + region.cod)
@@ -27,7 +39,7 @@ const DateFetching: React.FC<Props> = (region) => {
             .catch(err => {
                 console.log(err);
             });
-        setRea(rea => rea + 1);
+        forceUpdate();
     }
     const absentClick = (id: number) => {
         axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/absent?id=' + id + '&min=' + region.min + '&cod=' + region.cod)
@@ -37,7 +49,7 @@ const DateFetching: React.FC<Props> = (region) => {
             .catch(err => {
                 console.log(err);
             });
-        setRea(rea => rea + 1);
+        forceUpdate();
     };
     const falseClick = (id: number) => {
         axios.get<Street[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/undo?id=' + id + '&min=' + region.min + '&cod=' + region.cod)
@@ -47,7 +59,7 @@ const DateFetching: React.FC<Props> = (region) => {
             .catch(err => {
                 console.log(err);
             });
-        setRea(rea => rea + 1);
+        forceUpdate();
     };
     useEffect(() => {
         if (region.id != -1) {
@@ -67,7 +79,7 @@ const DateFetching: React.FC<Props> = (region) => {
 
         <div>
             {region.id != -1 ? (
-                <table key={rea}>
+                <table>
                 <thead>
                     <tr>
                         <th>Adres</th>
