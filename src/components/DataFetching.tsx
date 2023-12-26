@@ -10,14 +10,21 @@ interface Post {
     priest: string,
     street: string
 }
+interface Props {
+    id: number,
+}
 
-const DataFetching: React.FC = () => {
+const DataFetching: React.FC<Props> = (kol) => {
     const [posts, setPosts] = useState<Post[]>([]);
-    const queryParameters = new URLSearchParams(window.location.search)
-    const kol = queryParameters.get("kol")
+
+
+
+    const handleClick = () => {
+        console.log("Hello");
+    }
 
     useEffect(() => {
-        axios.get<Post[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/list?id=' + kol)
+        axios.get<Post[]>('https://probewebapp20231222201703.azurewebsites.net/api/minkol/list?id=' + kol.id)
             .then(res => {
                 console.log(res);
                 setPosts(res.data);
@@ -70,6 +77,7 @@ const DataFetching: React.FC = () => {
                                 <td>{post.priest}</td>
                                 <td>{post.minName}</td>
                                 <td>{post.minTel}</td>
+                                <td><button onClick={handleClick}>Szczegóły</button></td>
                             </tr>
                         ))
                     }

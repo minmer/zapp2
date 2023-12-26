@@ -1,15 +1,24 @@
 import DataFetching from "./components/DataFetching"
+import { useState} from 'react';
 import './App.css'
 
 function App() {
+    const [koleda, setKoleda] = useState(-1);
     const queryParameters = new URLSearchParams(window.location.search)
-    const kol = queryParameters.get("kol") 
+    let kol = parseInt(queryParameters.get("kol") || "-1")
+    setKoleda(kol);
+    const isClicked = () => {
+        kol = kol + 1
+        setKoleda(kol);
+    }
+
 
   return (
       <>
-          <div>
+          <button onClick={ isClicked}>CLick me</button>
+            <div>
           {kol != null ? (
-              <DataFetching />
+                  <DataFetching id={koleda} />
           ) : (
               <h1>Hello World!</h1>
           )}
