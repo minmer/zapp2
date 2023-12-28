@@ -63,6 +63,10 @@ table {
     border-collapse: collapse;
 }
 
+tr {
+    background-color: #ffffff;
+}
+
 input {
     margin: 12px;
     padding: 12px;
